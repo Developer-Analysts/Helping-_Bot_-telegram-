@@ -1,0 +1,34 @@
+@client.on(events.NewMessage(pattern=r'!raw (\w+)'))
+async def handler(event):
+    ...
+
+arg = event.pattern_match.group(1)
+print(arg)  # first word
+
+parts = event.raw_text.split()
+if len(parts) &gt; 1:
+    arg = parts[1]
+
+ ----------------------- 
+@client.on(events.NewMessage(pattern=r'!raw (\w+)'))
+async def handler(event):
+    ...
+
+arg = event.pattern_match.group(1)
+print(arg)  # first word
+
+parts = event.raw_text.split()
+if len(parts) &gt; 1:
+    arg = parts[1]
+
+ ----------------------- 
+@client.on(events.NewMessage(pattern=r'!raw (\w+)'))
+async def handler(event):
+    ...
+
+arg = event.pattern_match.group(1)
+print(arg)  # first word
+
+parts = event.raw_text.split()
+if len(parts) &gt; 1:
+    arg = parts[1]

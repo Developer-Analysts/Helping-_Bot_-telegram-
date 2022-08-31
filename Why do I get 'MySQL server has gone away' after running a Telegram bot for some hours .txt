@@ -1,0 +1,111 @@
+SET SESSION wait_timeout = ...
+
+ ----------------------- 
+from django.db import close_old_connections
+
+try:
+    #do your long running operation here
+except django.db.utils.OperationalError:
+    close_old_connections()
+    #do your long running operation here
+
+from channels.db import database_sync_to_async
+
+async def connect(self):
+    self.username = await database_sync_to_async(self.get_name)()
+
+def get_name(self):
+    return User.objects.all()[0].name
+
+@database_sync_to_async
+def get_name(self):
+    return User.objects.all()[0].name
+
+ ----------------------- 
+from django.db import close_old_connections
+
+try:
+    #do your long running operation here
+except django.db.utils.OperationalError:
+    close_old_connections()
+    #do your long running operation here
+
+from channels.db import database_sync_to_async
+
+async def connect(self):
+    self.username = await database_sync_to_async(self.get_name)()
+
+def get_name(self):
+    return User.objects.all()[0].name
+
+@database_sync_to_async
+def get_name(self):
+    return User.objects.all()[0].name
+
+ ----------------------- 
+from django.db import close_old_connections
+
+try:
+    #do your long running operation here
+except django.db.utils.OperationalError:
+    close_old_connections()
+    #do your long running operation here
+
+from channels.db import database_sync_to_async
+
+async def connect(self):
+    self.username = await database_sync_to_async(self.get_name)()
+
+def get_name(self):
+    return User.objects.all()[0].name
+
+@database_sync_to_async
+def get_name(self):
+    return User.objects.all()[0].name
+
+ ----------------------- 
+from django.db import close_old_connections
+close_old_connections()
+# do some db actions, it will reconnect db
+
+ ----------------------- 
+[mysqld]
+...
+max_allowed_packet=128M
+innodb_log_file_size = 128M # Fix kopano-server: SQL [00000088] info: MySQL server has gone away. Reconnecting, see https://jira.kopano.io/browse/KC-1053
+
+[mysqld]
+...
+wait_timeout = 288000 # Increase timeout to 80h before Mysql server will also go away
+
+ ----------------------- 
+[mysqld]
+...
+max_allowed_packet=128M
+innodb_log_file_size = 128M # Fix kopano-server: SQL [00000088] info: MySQL server has gone away. Reconnecting, see https://jira.kopano.io/browse/KC-1053
+
+[mysqld]
+...
+wait_timeout = 288000 # Increase timeout to 80h before Mysql server will also go away
+
+ ----------------------- 
+def check_db(context):
+    # Do the code for running "SELECT 1" in the DB
+    return
+
+updater.job_queue.run_repeating(check_db, interval=21600, first=21600)
+
+from django.db import connection
+
+connection.close_if_unusable_or_obsolete()
+
+ ----------------------- 
+def check_db(context):
+    # Do the code for running "SELECT 1" in the DB
+    return
+
+updater.job_queue.run_repeating(check_db, interval=21600, first=21600)
+
+from django.db import connection
+
+connection.close_if_unusable_or_obsolete()

@@ -1,0 +1,21 @@
+updater = Updater(token='XXXXXXXXXXXXXXXXXX')
+dispatcher = updater.dispatcher
+
+all_message = {
+    message_id = 0
+    text = ""
+}
+
+def runMe(update, context):
+    global all_message
+    if update.message.message_id == all_message["message_id"]:
+        received_message = update.message.text
+        all_message["text"] += received_message 
+        print("Received message with length %d" % len(received_message))
+        # Save (full) message to file
+    else:
+        all_message["message_id"] = update.message.message_id
+        all_message["text"] += received_message
+
+arg_handler = MessageHandler(Filters.text, runMe)
+dispatcher.add_handler(arg_handler)

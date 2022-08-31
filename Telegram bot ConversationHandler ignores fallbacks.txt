@@ -1,0 +1,4 @@
+MessageHandler(
+    Filters.text &amp; (~ Filters.command),
+    first_handler,
+)

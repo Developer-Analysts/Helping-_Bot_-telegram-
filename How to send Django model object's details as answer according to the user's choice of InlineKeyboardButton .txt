@@ -1,0 +1,3 @@
+filename = 'path_until_media_folder' + str(obj.img.url) 
+
+update.callback_query.bot.send_photo(update.effective_chat.id, photo=open(filename, 'rb'))

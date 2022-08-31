@@ -1,0 +1,52 @@
+from telegram import *
+from telegram.ext import *
+from dotenv import load_dotenv
+from responses import *
+
+load_dotenv()
+def main():
+  updater=Updater(os.getenv("BOT_TOKEN"), use_context=True)
+  dp=updater.dispatcher    
+  dp.add_handler(MessageHandler(Filters.regex('^(hello|hi)$'), hello))
+  dp.add_handler(MessageHandler(Filters.regex('^(who are you)$'), whoareyou))
+  dp.add_error_handler(error)
+  updater.start_polling()
+  updater.idle()
+main()
+
+def hello(update: Update, context: CallbackContext) -&gt; None:
+    try:
+      username = update.message.chat.username
+    except:
+      username = update.message.chat.first_name
+    update.message.reply_text(f'Hey! @{username} How it going?')
+
+def whoareyou(update: Update, context: CallbackContext) -&gt; None:
+    update.message.reply_text('Hi! I am Buddy Bot. Developed by Soham.')
+
+ ----------------------- 
+from telegram import *
+from telegram.ext import *
+from dotenv import load_dotenv
+from responses import *
+
+load_dotenv()
+def main():
+  updater=Updater(os.getenv("BOT_TOKEN"), use_context=True)
+  dp=updater.dispatcher    
+  dp.add_handler(MessageHandler(Filters.regex('^(hello|hi)$'), hello))
+  dp.add_handler(MessageHandler(Filters.regex('^(who are you)$'), whoareyou))
+  dp.add_error_handler(error)
+  updater.start_polling()
+  updater.idle()
+main()
+
+def hello(update: Update, context: CallbackContext) -&gt; None:
+    try:
+      username = update.message.chat.username
+    except:
+      username = update.message.chat.first_name
+    update.message.reply_text(f'Hey! @{username} How it going?')
+
+def whoareyou(update: Update, context: CallbackContext) -&gt; None:
+    update.message.reply_text('Hi! I am Buddy Bot. Developed by Soham.')

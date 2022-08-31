@@ -1,0 +1,50 @@
+def button(update: Update, context: CallbackContext) -&gt; None:
+    """Parses the CallbackQuery and updates the message text."""
+    query = update.callback_query
+
+    # CallbackQueries need to be answered, even if no notification to the user is needed
+    # Some clients may have trouble otherwise. See https://core.telegram.org/bots/api#callbackquery
+    query.answer()
+
+    query.edit_message_text(text=f"Selected option: {query.data}")
+
+    help_command(update, context)
+
+
+def help_command(update: Update, context: CallbackContext) -&gt; None:
+    """Displays info on how to use the bot."""
+    # update.message.reply_text("Use /start to test this bot.")
+    context.bot.send_message(update.effective_user.id, "Use /start to test this bot.")
+
+def help_command(update: Update, context: CallbackContext) -&gt; None:
+    """Displays info on how to use the bot."""
+    if hasattr(update.message, "reply_text"):
+        update.message.reply_text("Use /start to test this bot.")
+    else:
+        context.bot.send_message(update.effective_user.id, "Use /start to test this bot.")
+
+ ----------------------- 
+def button(update: Update, context: CallbackContext) -&gt; None:
+    """Parses the CallbackQuery and updates the message text."""
+    query = update.callback_query
+
+    # CallbackQueries need to be answered, even if no notification to the user is needed
+    # Some clients may have trouble otherwise. See https://core.telegram.org/bots/api#callbackquery
+    query.answer()
+
+    query.edit_message_text(text=f"Selected option: {query.data}")
+
+    help_command(update, context)
+
+
+def help_command(update: Update, context: CallbackContext) -&gt; None:
+    """Displays info on how to use the bot."""
+    # update.message.reply_text("Use /start to test this bot.")
+    context.bot.send_message(update.effective_user.id, "Use /start to test this bot.")
+
+def help_command(update: Update, context: CallbackContext) -&gt; None:
+    """Displays info on how to use the bot."""
+    if hasattr(update.message, "reply_text"):
+        update.message.reply_text("Use /start to test this bot.")
+    else:
+        context.bot.send_message(update.effective_user.id, "Use /start to test this bot.")

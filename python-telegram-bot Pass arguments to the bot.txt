@@ -1,0 +1,23 @@
+import os
+import telegram
+from telegram.ext import Updater, CommandHandler
+
+# --- init ---
+
+TOKEN = os.getenv('TELEGRAM_TOKEN')
+
+updater = Updater(token=TOKEN, use_context=True)
+dispatcher = updater.dispatcher
+
+# --- commands ---
+
+def start(update, context):
+    print('text:', update.message.text)   # /start something
+    print('args:', context.args)          # ['something']
+
+dispatcher.add_handler(CommandHandler('start', start))
+
+# --- start ---
+    
+updater.start_polling()
+updater.idle()

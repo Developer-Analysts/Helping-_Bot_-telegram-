@@ -1,0 +1,54 @@
+dispatcher.run_async(myFunction, updater.bot)
+
+def myfunction(bot):
+    bot.send_message(text='Hello, World',chat_id=123456789)
+
+import telegram
+from telegram.ext import Updater
+
+def myfunction(bot):
+    bot.send_message(text='Hello, World',chat_id=123456789)
+
+def main():
+    """Start the bot."""
+    # Create the Updater and pass it your bot's token.
+    updater = Updater("&lt;MY-BOT-TOKEN&gt;")
+
+    # Get the dispatcher to register handlers
+    dispatcher = updater.dispatcher
+    dispatcher.run_async(myfunction, updater.bot)
+
+    # Start the Bot
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == '__main__':
+    main()
+
+ ----------------------- 
+dispatcher.run_async(myFunction, updater.bot)
+
+def myfunction(bot):
+    bot.send_message(text='Hello, World',chat_id=123456789)
+
+import telegram
+from telegram.ext import Updater
+
+def myfunction(bot):
+    bot.send_message(text='Hello, World',chat_id=123456789)
+
+def main():
+    """Start the bot."""
+    # Create the Updater and pass it your bot's token.
+    updater = Updater("&lt;MY-BOT-TOKEN&gt;")
+
+    # Get the dispatcher to register handlers
+    dispatcher = updater.dispatcher
+    dispatcher.run_async(myfunction, updater.bot)
+
+    # Start the Bot
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == '__main__':
+    main()
